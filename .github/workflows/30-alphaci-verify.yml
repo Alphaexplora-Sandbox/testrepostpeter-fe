@@ -207,6 +207,7 @@ jobs:
     with:
       working-directory: .
       system-name: testrepostpeter-frontend
+      checkout-ref: ${{ needs.pipeline-context.outputs.sha }}
       e2e-base-url: https://${{ needs.resolve-targets.outputs.ui-uat }}
       e2e-tests-directory: tests/e2e
       browser-list: chromium
@@ -222,6 +223,7 @@ jobs:
     with:
       working-directory: .
       system-name: testrepostpeter-frontend
+      checkout-ref: ${{ needs.pipeline-context.outputs.sha }}
       e2e-base-url: https://${{ needs.resolve-targets.outputs.ui-main }}
       e2e-tests-directory: tests/e2e
       browser-list: chromium
@@ -390,7 +392,7 @@ jobs:
             #
             # Deduplicated because a solution built more than once (analyze, then
             # sonar) reports the same diagnostic on each pass.
-            ANNOTATIONS=$(printf '%s %s' "$ANNOTATIONS" "$JOB_ANN" | jq -s -c 'add | map(select(.path and (.path | startswith(".github") | not))) | map(select(.message and (.message | test("Process completed with exit code") | not))) | map({path: .path, line: .start_line, level: .annotation_level, title: .title, message: .message}) | unique_by([.path, .line, .message]) | .[0:20]' || printf '%s' "$ANNOTATIONS")
+            ANNOTATIONS=$(printf '%s %s' "$ANNOTATIONS" "$JOB_ANN" | jq -s -c 'add | map(select(.message and (.message | test("Process completed with exit code") | not))) | map({path: (.path // "workflow"), line: (.start_line // 1), level: .annotation_level, title: (.title // "Test Diagnostic"), message: .message}) | unique_by([.path, .line, .message]) | .[0:20]' || printf '%s' "$ANNOTATIONS")
           done
 
           # Build results sub-object (quality stage only — reads from job outputs)

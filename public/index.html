@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>testrepostpeter-frontend</title>
+  </head>
+  <body>
+    <div id="root">
+      <main style="font-family: system-ui, -apple-system, sans-serif; padding: 2rem; max-width: 800px; margin: 0 auto;">
+        <header style="border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1.5rem;">
+          <h1 data-testid="app-title" style="font-size: 2rem; font-weight: bold; margin: 0; color: #0f172a;">
+            testrepostpeter-frontend
+          </h1>
+          <p data-testid="service-meta" style="margin: 0.5rem 0 0; color: #64748b;">
+            Service: <strong>testrepostpeter-frontend</strong> | Environment: <strong>production</strong> | v0.1.0
+          </p>
+        </header>
+
+        <section aria-labelledby="status-heading" style="margin-bottom: 2rem;">
+          <h2 id="status-heading" style="font-size: 1.25rem; color: #1e293b;">
+            System Status
+          </h2>
+          <div
+            role="status"
+            aria-live="polite"
+            data-testid="status-indicator"
+            style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 9999px; background-color: #dcfce7; color: #15803d; font-weight: 600;"
+          >
+            <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #22c55e;"></span>
+            All systems operational
+          </div>
+        </section>
+
+        <section aria-labelledby="metrics-heading">
+          <h2 id="metrics-heading" style="font-size: 1.25rem; color: #1e293b;">
+            CI/CD Quality Metrics
+          </h2>
+          <div
+            data-testid="metrics-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; marginTop: 1rem;"
+          >
+            <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; background-color: #f8fafc;">
+              <div style="font-size: 0.875rem; color: #64748b; margin-bottom: 0.25rem;">Pipeline Engine</div>
+              <div style="font-size: 1.125rem; font-weight: 600; color: #0f172a;">ALPHACI Enterprise</div>
+            </div>
+            <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; background-color: #f8fafc;">
+              <div style="font-size: 0.875rem; color: #64748b; margin-bottom: 0.25rem;">Quality Gate</div>
+              <div style="font-size: 1.125rem; font-weight: 600; color: #0f172a;">Passing (&gt;=90%)</div>
+            </div>
+            <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; background-color: #f8fafc;">
+              <div style="font-size: 0.875rem; color: #64748b; margin-bottom: 0.25rem;">Deployment State</div>
+              <div style="font-size: 1.125rem; font-weight: 600; color: #0f172a;">Ready</div>
+            </div>
+            <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; background-color: #f8fafc;">
+              <div style="font-size: 0.875rem; color: #64748b; margin-bottom: 0.25rem;">Security Scan</div>
+              <div style="font-size: 1.125rem; font-weight: 600; color: #0f172a;">0 Vulnerabilities</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

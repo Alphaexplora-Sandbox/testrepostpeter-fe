@@ -19,4 +19,4 @@ RUN if [ -f package-lock.json ]; then npm ci --omit=dev --ignore-scripts; else n
 COPY --from=builder --chown=flowci:nodejs /app/dist ./dist
 USER flowci
 EXPOSE 3000
-CMD ["node", "dist/main.js"]
+CMD ["node", "dist/index.js"]
