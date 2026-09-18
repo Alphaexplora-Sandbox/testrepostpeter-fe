@@ -6,5 +6,7 @@ test.describe('testrepostpeter-frontend deployment', () => {
 
     expect(response?.ok()).toBeTruthy();
     await expect(page.locator('body')).toBeVisible();
+    await expect(page.locator('h1')).toBeVisible();
   });
 });
+
